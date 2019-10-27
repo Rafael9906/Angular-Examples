@@ -1,3 +1,10 @@
-<p>{{ contador }}</p>
+<ng-container *ngIf="!isLogged; else logged">
+    <button (click)="isLogged=true">Iniciar Sesión</button>
+    <button>Registrarse</button>
+</ng-container>
 
-<button (click)="suma()">Cambiar</button>
+<ng-template #logged>
+    <button>Administración</button>
+    <button>Perfil</button>
+    <button (click)="isLogged=false">Cerrar sesión</button>
+</ng-template>
